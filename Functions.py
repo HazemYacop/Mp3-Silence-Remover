@@ -1,3 +1,4 @@
+import webbrowser
 import os
 import tkinter as tk
 from tkinter import filedialog
@@ -8,6 +9,10 @@ from UserInterface import Ui_MainWindow as design
 
 
 class Package:
+    @staticmethod
+    def help():
+        webbrowser.open('https://stackoverflow.com/questions/4302027/how-to-open-a-url-in-python')
+
     @staticmethod
     def mp3_folder_path_finder():
         root = tk.Tk()

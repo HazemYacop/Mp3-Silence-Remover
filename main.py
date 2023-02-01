@@ -17,6 +17,7 @@ class Main:
         self.UserInterface.BackButton.clicked.connect(lambda: self.UserInterface.stackedWidget.setCurrentIndex(0))
         self.UserInterface.Mp3FolderButton.clicked.connect(lambda: self.UserInterface.Mp3FolderButton.setText(Package.mp3_folder_path_finder()))
         self.UserInterface.OutputFolderButton.clicked.connect(lambda: self.UserInterface.OutputFolderButton.setText(Package.output_folder_path_finder()))
+        self.UserInterface.HowDoesItWorkButton.clicked.connect(lambda: Package.help())
 
         # Program Path
         self.program_address = f'{os.path.expanduser("~")}\AppData\Local\Mp3 Silence Remover'
