@@ -4,7 +4,6 @@ import tkinter as tk
 from tkinter import filedialog
 from pydub import AudioSegment
 from PySide2.QtWidgets import *
-from PySide2 import QtGui
 from UserInterface import Ui_MainWindow as design
 
 
