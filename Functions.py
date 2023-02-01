@@ -74,5 +74,4 @@ class UserInterface(QMainWindow, design):
         super(UserInterface, self).__init__()
         self.setupUi(self)
         self.setWindowTitle("Silence Remover")
-        self.setWindowIcon(QtGui.QIcon("icon.ico"))
         self.show()
