@@ -8,7 +8,8 @@ Important Notes :
  - ffmpeg.exe
  - ffplay.exe
  - ffprobe.exe
- and if you are trying to export the project into an excutable (.exe) file by Pyinstaller or any other libraries like it, you have to add those files with it too
+
+-if you are trying to export the project into an excutable (.exe) file by Pyinstaller or any other libraries like it, you have to add the above files with it too
 
 -The Program Deletes only Silence at the beginning and the end of any mp3 file(s)
 -Thanks :)
