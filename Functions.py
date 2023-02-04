@@ -10,29 +10,19 @@ from UserInterface import Ui_MainWindow as design
 class Package:
     @staticmethod
     def help():
-        webbrowser.open('https://stackoverflow.com/questions/4302027/how-to-open-a-url-in-python')
+        print("This will be available in the future")
+        # webbrowser.open('https://stackoverflow.com/questions/4302027/how-to-open-a-url-in-python')
 
     @staticmethod
-    def mp3_folder_path_finder():
+    def ask_for_directory():
         root = tk.Tk()
         root.withdraw()
         root.attributes('-topmost', True)
-        main_folder_path = filedialog.askdirectory()
-        if main_folder_path == "":
-            return "..."
+        directory = filedialog.askdirectory()
+        if directory != "":
+            return directory
         else:
-            return main_folder_path
-
-    @staticmethod
-    def output_folder_path_finder():
-        root = tk.Tk()
-        root.withdraw()
-        root.attributes('-topmost', True)
-        banner_path = filedialog.askdirectory()
-        if banner_path == "":
             return "..."
-        else:
-            return banner_path
 
     @staticmethod
     def extension_finder(directory, extension):
