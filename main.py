@@ -13,8 +13,8 @@ class Main:
         self.UserInterface.stackedWidget.setCurrentIndex(0)
 
         # Button(s) Fun(s)
-        self.UserInterface.StartButton.clicked.connect(lambda: [self.UserInterface.stackedWidget.setCurrentIndex(1), self.UserInterface.BackButton.setDisabled(True), self.UserInterface.WorkingLabel.setText("Working ..."), self.startup()])
-        self.UserInterface.BackButton.clicked.connect(lambda: self.UserInterface.stackedWidget.setCurrentIndex(0))
+        self.UserInterface.StartButton.clicked.connect(lambda: [self.UserInterface.stackedWidget.setCurrentIndex(1), self.UserInterface.transition([self.UserInterface.stackedWidget]), self.UserInterface.BackButton.setDisabled(True), self.UserInterface.WorkingLabel.setText("Working ..."), self.startup()])
+        self.UserInterface.BackButton.clicked.connect(lambda: [self.UserInterface.stackedWidget.setCurrentIndex(0), self.UserInterface.transition([self.UserInterface.stackedWidget])])
         self.UserInterface.Mp3FolderButton.clicked.connect(lambda: self.UserInterface.Mp3FolderButton.setText(Package.ask_for_directory()))
         self.UserInterface.OutputFolderButton.clicked.connect(lambda: self.UserInterface.OutputFolderButton.setText(Package.ask_for_directory()))
         self.UserInterface.HowDoesItWorkButton.clicked.connect(lambda: Package.help())

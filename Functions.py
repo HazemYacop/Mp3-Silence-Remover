@@ -5,6 +5,7 @@ from tkinter import filedialog
 from pydub import AudioSegment
 from PySide2.QtWidgets import *
 from UserInterface import Ui_MainWindow as design
+from PySide2.QtCore import QParallelAnimationGroup, QPropertyAnimation, QEasingCurve, QPoint
 
 
 class Package:
@@ -62,5 +63,34 @@ class UserInterface(QMainWindow, design):
     def __init__(self):
         super(UserInterface, self).__init__()
         self.setupUi(self)
-        self.setWindowTitle("Silence Remover")
+        self.setWindowTitle("Mp3 Silence Remover")
         self.show()
+
+    def transition(self, ui_element):
+        self.anim_group = QParallelAnimationGroup()
+
+        for element in ui_element:
+            self.element = element
+            x = self.element.x()
+            y = self.element.y()
+            element.move(x - 50, y)
+
+        for element in ui_element:
+            effect = QGraphicsOpacityEffect(element)
+            self.element = element
+            x = self.element.x()
+            y = self.element.y()
+            self.element.setGraphicsEffect(effect)
+            self.anim_1 = QPropertyAnimation(effect, b"opacity")
+            self.anim_1.setStartValue(0)
+            self.anim_1.setEndValue(1)
+            self.anim_1.setDuration(400)
+            self.child = element
+            self.anim = QPropertyAnimation(self.child, b"pos")
+            self.anim.setEasingCurve(QEasingCurve.InOutCubic)
+            self.anim.setEndValue(QPoint(x+50, y))
+            self.anim.setDuration(300)
+            self.anim_group.addAnimation(self.anim_1)
+            self.anim_group.addAnimation(self.anim)
+
+        self.anim_group.start()
