@@ -1,5 +1,5 @@
-import webbrowser
 import os
+import webbrowser
 import tkinter as tk
 from tkinter import filedialog
 from pydub import AudioSegment
