@@ -8,11 +8,11 @@ class Main:
     def __init__(self):
         super().__init__()
 
-        # Ui Definition
+        # Re-translating UI
         self.UserInterface = UserInterface()
         self.UserInterface.stackedWidget.setCurrentIndex(0)
 
-        # Button(s) Fun(s)
+        # Button(s) Function(s)
         self.UserInterface.StartButton.clicked.connect(lambda: [self.UserInterface.stackedWidget.setCurrentIndex(1), self.UserInterface.transition([self.UserInterface.stackedWidget]), self.UserInterface.BackButton.setDisabled(True), self.UserInterface.WorkingLabel.setText("Working ..."), self.startup()])
         self.UserInterface.BackButton.clicked.connect(lambda: [self.UserInterface.stackedWidget.setCurrentIndex(0), self.UserInterface.transition([self.UserInterface.stackedWidget])])
         self.UserInterface.Mp3FolderButton.clicked.connect(lambda: self.UserInterface.Mp3FolderButton.setText(Package.ask_for_directory()))
@@ -38,18 +38,15 @@ class Main:
             self.UserInterface.BackButton.setDisabled(False)
 
     def main(self):
-        # Printing Mp3 Folder and Output Folder (in case there was an error)
-        print(f"The mp3 Folder is: {self.mp3_folder_path}, and output folder is: {self.output_folder_path}")
+        print(f"The mp3 Folder is: {self.mp3_folder_path}, and output folder is: {self.output_folder_path}")  # Prints Mp3 Folder and Output Folder (in case there was an error)
         Failed_Conversions = []
 
         for mp3 in Package.extension_finder(self.mp3_folder_path, ".mp3"):
             try:
-                # Setting the text of the current file in the UI
-                self.UserInterface.CurrentFileLabel.setText(f"Current File : {mp3}")
+                self.UserInterface.CurrentFileLabel.setText(f"Current File : {mp3}")  # Sets the text of the current file in the UI
                 print(f"Current mp3 : {mp3}")
 
-                # Mp3 Full Path
-                mp3_path = f"{self.mp3_folder_path}/{mp3}"
+                mp3_path = f"{self.mp3_folder_path}/{mp3}"  # Mp3 Full Path
 
                 # Generating Audio
                 Package.remove_silence(mp3, mp3_path, self.output_folder_path)
@@ -57,7 +54,7 @@ class Main:
                 print(e)
                 Failed_Conversions.append(f"File : {mp3}")
 
-        # Re-Defining UserInterface
+        # Re-translating UI
         self.UserInterface.WorkingLabel.setText("Program Finished ...")
         self.UserInterface.CurrentFileLabel.setText("")
         self.UserInterface.BackButton.setDisabled(False)
