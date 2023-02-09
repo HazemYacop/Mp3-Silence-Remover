@@ -1,4 +1,4 @@
-# Mp3-Silence-Remover
+# Mp3-Silence-Remover V0.22
 A Windows Software that deletes the silence at the beginning of mp3 file(s)
 
 Important Notes :
