@@ -41,7 +41,6 @@ class Main:
         # Printing Mp3 Folder and Output Folder (in case there was an error)
         print(f"The mp3 Folder is: {self.mp3_folder_path}, and output folder is: {self.output_folder_path}")
         Failed_Conversions = []
-        counter = 0
 
         for mp3 in Package.extension_finder(self.mp3_folder_path, ".mp3"):
             try:

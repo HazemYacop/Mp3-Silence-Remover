@@ -10,11 +10,6 @@ from PySide2.QtCore import QParallelAnimationGroup, QPropertyAnimation, QEasingC
 
 class Package:
     @staticmethod
-    def help():
-        print("This will be available in the future")
-        # webbrowser.open('https://stackoverflow.com/questions/4302027/how-to-open-a-url-in-python')
-
-    @staticmethod
     def ask_for_directory():
         root = tk.Tk()
         root.withdraw()
@@ -34,13 +29,12 @@ class Package:
 
     @staticmethod
     def detect_leading_silence(sound, silence_threshold=-50.0, chunk_size=10):
-        '''
+        """
         sound is a pydub.AudioSegment
         silence_threshold in dB
         chunk_size in ms
-
         iterate over chunks until you find the first one with sound.
-        '''
+        """
         trim_ms = 0  # ms
 
         assert chunk_size > 0  # to avoid infinite loop
@@ -57,6 +51,11 @@ class Package:
         duration = len(sound)
         trimmed_sound = sound[start_trim:duration - end_trim]
         trimmed_sound.export(f"{output}/{mp3_name}")
+
+    @staticmethod
+    def help():
+        print("This will be available in the future")
+        # webbrowser.open('https://stackoverflow.com/questions/4302027/how-to-open-a-url-in-python')
 
 
 class UserInterface(QMainWindow, design):
